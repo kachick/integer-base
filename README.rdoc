@@ -2,6 +2,7 @@
 
 * http://github.com/kachick/integer-base
 * https://rubygems.org/gems/integer-base
+* http://rubyforge.org/projects/integer-base/
 
 == DESCRIPTION
 
