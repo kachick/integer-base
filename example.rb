@@ -14,7 +14,12 @@ p(Integer::Base.parse '-019', ('0'..'9').to_a)
 p(Integer::Base.parse '-019', ('0'..'9').to_a)
 p Kernel.Integer('19')
 
-my_base_chars = %w[0 a]
+my_chars_1 = %w[0 a]
+p 'a'.to_i(my_chars_1)
+p 'a0'.to_i(my_chars_1)
 
-p 'a'.to_i(my_base_chars)
-p 'a0'.to_i(my_base_chars)
+my_chars_2 = ['0', *'A'..'I']
+p 'a'.to_i(my_chars_2)
+p 'a0'.to_i(my_chars_2)
+p 'aib'.to_i(my_chars_2)
+p 192.to_s(my_chars_2)

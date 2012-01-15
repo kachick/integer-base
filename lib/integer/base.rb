@@ -15,7 +15,7 @@ class Integer
       def parse(str, chars)
         chars = base_chars_for chars
         base = chars.length
-        str = str.upcase
+        str = str.downcase
         
         if sign = str.slice!(/\A([-+])/, 1)
           if sign == '-'
@@ -62,7 +62,7 @@ class Integer
       private
       
       def base_chars_for(chars)
-        chars = chars.map(&:upcase)
+        chars = chars.map(&:downcase)
 
         case
         when chars.length < 2

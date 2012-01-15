@@ -34,8 +34,6 @@ module Kernel
 end
 
 class Integer
-  alias_method :original_to_s, :to_s
-
   # @param [Fixnum] base
   # @param [Array<String>] base
   # @return [String]
@@ -47,4 +45,14 @@ class Integer
       original_to_s base
     end
   end
+end
+
+class Fixnum
+  alias_method :original_to_s, :to_s
+  remove_method :to_s
+end
+
+class Bignum
+  alias_method :original_to_s, :to_s
+  remove_method :to_s
 end

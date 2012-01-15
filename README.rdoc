@@ -10,7 +10,7 @@ use free-format in positional numeral system
 == FEATURES
 
 * easy build upper 36 basenumbers
-* original syntax (0 1 2 -> 0 a b, etc)
+* use original syntax (0 1 2 -> 0 a b, etc)
 
 == SYNOPSIS
 
@@ -20,11 +20,18 @@ use free-format in positional numeral system
 * extend
     require 'integer/base/import'
 
-* 
-    my_base_chars = %w[0 a]
-    'a'.to_i(my_base_chars) #=> 1
-    'a0'.to_i(my_base_chars) #=> 2
+* to_i
+    my_chars = %w[0 a]
+    'a'.to_i(my_chars) #=> 1
+    'a0'.to_i(my_chars) #=> 2
 
+    my_chars = ['0', *'A'..'I']
+    'a'.to_i(my_chars) #=> 1
+    'a0'.to_i(my_chars) #=> 10
+    'aib'.to_i(my_chars) #=> 192
+
+* to_s
+    192.to_s(my_chars) #=> 'aib'
 
 == REQUIREMENTS
 
