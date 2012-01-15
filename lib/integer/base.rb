@@ -3,7 +3,9 @@
 class Integer
 
   # @author Kenichi Kamiya
-  module Base   
+  module Base
+    VERSION = '0.0.1'.freeze
+  
     class InvalidCharacter < TypeError; end
     
     SPECIAL_CHAR = /[\x00-\x20\-\+]/
