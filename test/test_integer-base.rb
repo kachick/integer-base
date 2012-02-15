@@ -19,5 +19,12 @@ class TestIntegerBase < Test::Unit::TestCase
   
   def test_to_s
     assert_equal('aib', 192.to_s(MY_CHARS))
+    chars_binary = %w[0 1]
+    assert_equal('0', 0.to_s(chars_binary))
+    assert_equal('1', 1.to_s(chars_binary))
+    assert_equal('10', 2.to_s(chars_binary))
+    assert_equal('11', 3.to_s(chars_binary))
+    assert_equal('100', 4.to_s(chars_binary))
+    assert_equal('101', 5.to_s(chars_binary))
   end
 end

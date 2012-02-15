@@ -46,14 +46,15 @@ class Integer
       # @return [String]
       def convert_to_string(int, chars)
         raise TypeError unless int.kind_of? Integer
-        
+        return '0' if int == 0
+
         chars = base_chars_for chars
         base = chars.length
-
+  
         ''.tap do |s|
           n = int
-          
-          while (n, excess = n.divmod base).last > 0
+
+          until (n, excess = n.divmod base; n == 0 && excess == 0)
             s << chars[excess]
           end
           

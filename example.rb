@@ -23,3 +23,9 @@ p 'a'.to_i(my_chars_2)
 p 'a0'.to_i(my_chars_2)
 p 'aib'.to_i(my_chars_2)
 p 192.to_s(my_chars_2)
+
+my_chars_3 = %w[0 1]
+p 0.to_s(my_chars_3)
+p 1.to_s(my_chars_3)
+p 2.to_s(my_chars_3)
+p 3.to_s(my_chars_3)
