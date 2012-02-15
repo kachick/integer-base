@@ -4,7 +4,7 @@ class Integer
 
   # @author Kenichi Kamiya
   module Base
-    VERSION = '0.0.1'.freeze
+    VERSION = '0.0.2'.freeze
   
     class InvalidCharacter < TypeError; end
     

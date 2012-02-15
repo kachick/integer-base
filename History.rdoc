@@ -1,3 +1,8 @@
+=== 0.0.2 2012-2-16
+
+* fix:
+  * #to_s(#convert_to_string)
+
 === 0.0.1 2012-1-15
 
 * 1 major enhancement:
