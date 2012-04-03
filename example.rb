@@ -1,19 +1,24 @@
-#!/usr/bin/ruby -w
+$VERSION = true
 
 require_relative 'lib/integer/base'
 
-p '019'.to_i
+# Format into your chars
 p(Integer::Base.parse '-019', ('0'..'9').to_a)
 p(Integer::Base.parse '-019', ('0'..'9').to_a)
 p Kernel.Integer('19')
 
+# No taint here
+p '019'.to_i
+
+# Overrided to_i, to_s
 require_relative 'lib/integer/base/import'
 
+# But, normal-format isn't changed
 p '019'.to_i
-p(Integer::Base.parse '-019', ('0'..'9').to_a)
-p(Integer::Base.parse '-019', ('0'..'9').to_a)
-p Kernel.Integer('19')
 
+puts '-' * 78
+
+# Basic use cases
 my_chars_1 = %w[0 a]
 p 'a'.to_i(my_chars_1)
 p 'a0'.to_i(my_chars_1)
