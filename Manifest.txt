@@ -5,6 +5,8 @@ Manifest.txt
 Rakefile
 example.rb
 lib/integer/base.rb
+lib/integer/eigen.rb
+lib/integer/version.rb
 lib/integer/base/ext.rb
 test/test_helper.rb
 test/test_integer-base.rb
