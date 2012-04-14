@@ -1,5 +1,5 @@
 $VERBOSE = true
-require File.dirname(__FILE__) + '/test_helper.rb'
+require_relative 'test_helper'
 
 class TestIntegerBase < Test::Unit::TestCase
   MY_CHARS = ['0', *'A'..'I'].map(&:freeze).freeze

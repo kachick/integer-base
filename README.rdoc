@@ -19,7 +19,7 @@ Your format comes into positional numeral systems.
     require 'integer/base'
 
 * extend
-    require 'integer/base/import'
+    require 'integer/base/ext'
 
 * to_i
     my_chars = %w[0 a]

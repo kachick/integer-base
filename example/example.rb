@@ -1,6 +1,6 @@
 $VERSION = true
 
-require_relative 'lib/integer/base'
+require_relative '../lib/integer/base'
 
 # Format into your chars
 p(Integer::Base.parse '-019', ('0'..'9').to_a)
@@ -11,7 +11,7 @@ p Kernel.Integer('19')
 p '019'.to_i
 
 # Overrided to_i, to_s
-require_relative 'lib/integer/base/import'
+require_relative '../lib/integer/base/ext'
 
 # But, normal-format isn't changed
 p '019'.to_i

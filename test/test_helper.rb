@@ -1,4 +1,3 @@
-require 'stringio'
 require 'test/unit'
-require File.dirname(__FILE__) + '/../lib/integer/base'
-require File.dirname(__FILE__) + '/../lib/integer/base/import'
+require_relative '../lib/integer/base'
+require_relative '../lib/integer/base/ext'
