@@ -1,6 +1,7 @@
+README.rdoc
+LICENSE
 History.rdoc
 Manifest.txt
-README.rdoc
 Rakefile
 example.rb
 lib/integer/base.rb
