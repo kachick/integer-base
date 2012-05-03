@@ -3,8 +3,9 @@
 class Integer; module Base
   
   class << self
+
     # @param [String] str
-    # @param [Array<String>] chars
+    # @param [Array<#to_sym>] chars
     # @return [Integer]
     def parse(str, chars)
       chars = base_chars_for chars
@@ -17,56 +18,56 @@ class Integer; module Base
         end
       end
       
-      str.slice!(/\A0+/)
+      str.slice!(/\A#{chars.first}+/)
 
-      r = str.chars.reverse_each.with_index.inject(0) do |sum, rest|
+      r = str.chars.reverse_each.with_index.inject(0) {|sum, rest|
         char, index = *rest
         sum += (
-          if radix = chars.index(char)
+          if radix = chars.index(char.to_sym)
             radix * (base ** index)
           else
             raise InvalidCharacter
           end
         )
-      end
+      }
       
       minus ? -r : r       
     end
 
     # @param [Integer] int
-    # @param [Array<String>] chars
+    # @param [Array<#to_sym>] chars
     # @return [String]
     def convert_to_string(int, chars)
       raise TypeError unless int.kind_of? Integer
-      return '0' if int == 0
-
       chars = base_chars_for chars
       base = chars.length
+      
+      return chars.first.to_s if int == 0
 
-      ''.tap do |s|
+      ''.tap {|s|
         n = int
 
         until (n, excess = n.divmod base; n == 0 && excess == 0)
-          s << chars[excess]
+          s << chars[excess].to_s
         end
         
         s.reverse!
-      end
+      }
     end
     
     private
     
+    # @param [Array<#to_sym>] chars
+    # @return [Array<Symbol>]
     def base_chars_for(chars)
-      chars = chars.map(&:downcase)
+      chars = chars.map{|c|c.downcase.to_sym}
 
       case
       when chars.length < 2
         raise TypeError, 'use 2 and more characters'
-      when (chars.first != '0') || chars[1..-1].include?('0')
-        raise InvalidCharacter, 'keep 0 for first character'
       when chars.dup.uniq!
         raise InvalidCharacter, 'dupulicated characters'
-      when chars.any?{|s|(! s.kind_of?(String)) || (s.length != 1)}
+      when chars.any?{|s|(! s.kind_of?(Symbol)) || (s.length != 1)}
         raise InvalidCharacter, 'chars must be Array<Char> (Char: String & length 1)'
       when chars.any?{|c|SPECIAL_CHAR =~ c}
         raise InvalidCharacter, 'included Special Characters (-, +, space, control-char)'

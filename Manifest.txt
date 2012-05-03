@@ -3,10 +3,10 @@ LICENSE
 History.rdoc
 Manifest.txt
 Rakefile
-example.rb
 lib/integer/base.rb
-lib/integer/eigen.rb
-lib/integer/version.rb
+lib/integer/base/eigen.rb
+lib/integer/base/standard_chars.rb
+lib/integer/base/version.rb
 lib/integer/base/ext.rb
 test/test_helper.rb
 test/test_integer-base.rb

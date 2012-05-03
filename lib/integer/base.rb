@@ -10,3 +10,4 @@ end
 
 require_relative 'base/version'
 require_relative 'base/eigen'
+require_relative 'base/standard_chars'

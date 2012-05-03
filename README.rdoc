@@ -1,4 +1,4 @@
-= Integer::Base
+= integer-base
 
 * http://github.com/kachick/integer-base
 * http://rubygems.org/gems/integer-base
@@ -10,37 +10,50 @@ Your format comes into positional numeral systems.
 
 == Feautures
 
-* easy build upper 36 basenumbers
-* use original syntax (0 1 2 -> 0 a b, etc)
+* You can build upper 36 basenumbers so easily
+* And get own formats so easily too :)
+
+  e.g.
+  * 0 1 -> 0 a
+  * 0 1 2 3 4 5 6 7 8 9 -> a b c d e f g h i j
 
 == Usage
 
-* setup
+* Setup
     require 'integer/base'
 
-* extend
+* Basic
+    Integer::Base.parse '10', %w[0 1]   #=> 2
+
+* Extend Ruby's Interface
     require 'integer/base/ext'
 
 * to_i
-    my_chars = %w[0 a]
-    'a'.to_i(my_chars) #=> 1
-    'a0'.to_i(my_chars) #=> 2
-
-    my_chars = ['0', *'A'..'I']
-    'a'.to_i(my_chars) #=> 1
-    'a0'.to_i(my_chars) #=> 10
-    'aib'.to_i(my_chars) #=> 192
+    'a'.to_i   ['0', *'A'..'I']        #=> 1
+    'a0'.to_i  ['0', *'A'..'I']        #=> 10
+    'aib'.to_i ['0', *'A'..'I']        #=> 192
 
 * to_s
-    192.to_s(my_chars) #=> 'aib'
+    192.to_s   ['0', *'A'..'I']        #=> 'aib'
+
+* Already defined useful chars
+    '10'.to_i Integer::Base::STANDARD_CHARS[36]         #=> 36
+    '10'.to_i Integer::Base::STANDARD_CHARS[:BINARY]    #=> 2
+
+* Get own formats
+    'a'.to_i  %w[0 a]                  #=> 1
+    'a0'.to_i %w[0 a]                  #=> 2
+
+* Upper 36 basenumbers
+    '1!'.to_i([*Integer::Base::STANDARD_CHARS[36], '!']) #=> 73
 
 == Requirements
 
 * Ruby 1.9.2 or later
   
-  target release versions
+  Focusing
   
-  * 1.9.3-p125
+  * 1.9.3-p194
   * 1.9.2-p290
 
 == Installation
@@ -49,6 +62,8 @@ Your format comes into positional numeral systems.
 
 == License
 
-Copyright (C) 2011  Kenichi Kamiya
+The MIT X11 License
 
-The MIT/X11 License (See the file LICENSE)
+Copyright (c) 2011 Kenichi Kamiya
+
+See the file LICENSE for further details.
