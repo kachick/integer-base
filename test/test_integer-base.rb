@@ -78,6 +78,10 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_equal('101'.to_i(27), Integer::Base.parse('101', Integer::Base::STANDARD_CHARS[27]))
     assert_equal('11'.to_i(36), Integer::Base.parse('11', Integer::Base::STANDARD_CHARS[36]))
     assert_equal('101'.to_i(36), Integer::Base.parse('101', Integer::Base::STANDARD_CHARS[36]))
+    
+    assert_raises KeyError do
+      Integer::Base::STANDARD_CHARS[37]
+    end
   end
   
   def test_upper36
