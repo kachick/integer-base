@@ -1,6 +1,7 @@
 # Copyright (C) 2011  Kenichi Kamiya
 
 class String
+
   alias_method :original_to_i, :to_i
   
   remove_method :to_i
@@ -18,7 +19,9 @@ class String
       original_to_i base
     end
   end
+
 end
+
 
 class Integer
 
@@ -35,14 +38,21 @@ class Integer
       original_to_s base
     end
   end
+
 end
+
 
 class Fixnum
+
   alias_method :original_to_s, :to_s
   remove_method :to_s
+
 end
 
+
 class Bignum
+
   alias_method :original_to_s, :to_s
   remove_method :to_s
+
 end
