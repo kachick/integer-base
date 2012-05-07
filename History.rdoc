@@ -1,3 +1,12 @@
+=== 0.0.4 2012-5-7
+
+* modify:
+  * Integer::Base::STANDARD_CHARS was able to check Key-Index (37 : nil -> 37 : KeyError)
+
+* fix:
+  * delete a excess extention "Kernel.#Integer"
+  * bug on #to_s when minus numbers
+
 === 0.0.3 2012-5-3
 
 * modify:
@@ -5,7 +14,6 @@
 
 * add:
   * Integer::Base::STANDARD_CHARS
-
 
 === 0.0.2 2012-2-16
 
