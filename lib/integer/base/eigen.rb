@@ -4,34 +4,19 @@ class Integer; module Base
   
   class << self
 
-    # @param [String] str
+    # @param [#to_str] str
     # @param [Array<#to_sym>] chars
     # @return [Integer]
     def parse(str, chars)
       chars = base_chars_for chars
-      base = chars.length
-      str = str.downcase
+      str   = str.to_str.downcase
       
-      if sign = str.slice!(/\A([-+])/, 1)
-        if sign == '-'
-          minus = true
-        end
-      end
+      sign  = parse_sign! str
+      trim_paddings! str, chars.first
       
-      str.slice!(/\A#{chars.first}+/)
-
-      r = str.chars.reverse_each.with_index.inject(0) {|sum, rest|
-        char, index = *rest
-        sum += (
-          if radix = chars.index(char.to_sym)
-            radix * (base ** index)
-          else
-            raise InvalidCharacter
-          end
-        )
-      }
+      abs = parse_abs str, chars
       
-      minus ? -r : r       
+      (sign == :-) ? -abs : abs       
     end
 
     # @param [Integer] int
@@ -74,6 +59,31 @@ class Integer; module Base
       else
         chars
       end
+    end
+    
+    # @return [Symbol]
+    def parse_sign!(str)
+      sign = str.slice!(/\A([-+])/, 1)
+      sign ? sign.to_sym : :+
+    end
+    
+    def trim_paddings!(str, pad_char)
+      str.slice!(/\A#{pad_char}+/)
+    end
+    
+    # @return [Integer]
+    def parse_abs(str, chars)
+      base = chars.length
+      
+      str.chars.reverse_each.with_index.inject(0) {|sum, char_index|
+        char, index = *char_index
+        
+        if radix = chars.index(char.to_sym)
+          sum + (radix * (base ** index))
+        else
+          raise InvalidCharacter
+        end
+      }
     end
 
   end
