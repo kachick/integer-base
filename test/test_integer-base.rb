@@ -23,6 +23,22 @@ class TestIntegerBase < Test::Unit::TestCase
 
     assert_equal(10, 'a0'.to_i(['0', *'A'..'I']))
     assert_equal(192, 'aib'.to_i(['0', *'A'..'I']))
+    assert_equal(10, '+a0'.to_i(['0', *'A'..'I']))
+    assert_equal(192, '+aib'.to_i(['0', *'A'..'I']))
+    assert_equal(-10, '-a0'.to_i(['0', *'A'..'I']))
+    assert_equal(-192, '-aib'.to_i(['0', *'A'..'I']))
+    
+    assert_raises Integer::Base::InvalidCharacter do
+      'a-ib'.to_i(['0', *'A'..'I'])
+    end
+    
+    assert_raises Integer::Base::InvalidCharacter do
+      'a+ib'.to_i(['0', *'A'..'I'])
+    end
+
+    assert_raises Integer::Base::InvalidCharacter do
+      '~aib'.to_i(['0', *'A'..'I'])
+    end
   end
   
   def test_characterable
