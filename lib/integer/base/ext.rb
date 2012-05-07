@@ -20,21 +20,6 @@ class String
   end
 end
 
-module Kernel
-  alias_method :original_Integer, :Integer
-  
-  # @return [Integer]
-  def Integer(obj)
-    original_integer obj
-  rescue ArgumentError
-    if obj.kind_of? String
-      ::Integer::Base.parse self, base
-    else
-      raise
-    end
-  end
-end
-
 class Integer
 
   # @overload to_s(base_number)
