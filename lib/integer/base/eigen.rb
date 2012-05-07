@@ -19,13 +19,13 @@ class Integer; module Base
       (sign == :-) ? -abs : abs       
     end
 
-    # @param [Integer] int
+    # @param [#to_int] num
     # @param [Array<#to_sym>] chars
     # @return [String]
-    def convert_to_string(int, chars)
-      raise TypeError unless int.kind_of? Integer
+    def convert_to_string(num, chars)
       chars = base_chars_for chars
-      base = chars.length
+      int   = num.to_int
+      base  = chars.length
       
       return chars.first.to_s if int == 0
 
