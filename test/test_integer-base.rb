@@ -57,6 +57,14 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_equal('11', 3.to_s(%w[0 1]))
     assert_equal('100', 4.to_s(%w[0 1]))
     assert_equal('101', 5.to_s(%w[0 1]))
+    
+    assert_equal('-aib', -192.to_s(['0', *'A'..'I']))
+    assert_equal('0', 0.to_s(%w[0 1]))
+    assert_equal('-1', -1.to_s(%w[0 1]))
+    assert_equal('-10', -2.to_s(%w[0 1]))
+    assert_equal('-11', -3.to_s(%w[0 1]))
+    assert_equal('-100', -4.to_s(%w[0 1]))
+    assert_equal('-101', -5.to_s(%w[0 1]))
   end
   
   def test_binary
