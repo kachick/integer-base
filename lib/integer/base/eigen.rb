@@ -30,13 +30,14 @@ class Integer; module Base
       return chars.first.to_s if int == 0
 
       ''.tap {|s|
-        n = int
+        n = int.abs
 
         until (n, excess = n.divmod base; n == 0 && excess == 0)
           s << chars[excess].to_s
         end
         
         s.reverse!
+        s.insert 0, '-' if int < 0
       }
     end
     
