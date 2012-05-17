@@ -12,11 +12,28 @@ class Integer; module Base
       str   = str.to_str.downcase
       
       sign  = parse_sign! str
-      trim_paddings! str, chars.first
       
-      abs = parse_abs str, chars
+      case chars.length
+      when 1
+        parse_unary_abs str, chars.first
+      else
+        trim_paddings! str, chars.first
+        
+        abs = parse_abs str, chars
+        
+        (sign == :-) ? -abs : abs
+      end
+    end
+    
+    def parse_unary_abs(str, char)
+      chars = str.chars
+      p chars.to_a
+      atom = chars.to_a.uniq.first.to_sym
       
-      (sign == :-) ? -abs : abs       
+      raise InvalidCharacter, 'contain multiple chars' unless atom.length == 1
+      raise InvalidCharacter, 'not match the char and atom' unless atom == char
+      
+      chars.length
     end
 
     # @param [#to_int] num
@@ -40,7 +57,10 @@ class Integer; module Base
         s.insert 0, '-' if int < 0
       }
     end
-    
+
+    def convert_unary(num, char)
+    end
+
     private
     
     # @param [Array<#to_sym>] chars
@@ -49,12 +69,12 @@ class Integer; module Base
       chars = chars.map{|c|c.downcase.to_sym}
 
       case
-      when chars.length < 2
+      when chars.length < 1
         raise TypeError, 'use 2 and more characters'
       when chars.dup.uniq!
         raise InvalidCharacter, 'dupulicated characters'
-      when chars.any?{|s|(! s.kind_of?(Symbol)) || (s.length != 1)}
-        raise InvalidCharacter, 'chars must be Array<Char> (Char: String & length 1)'
+      when chars.any?{|s|s.length != 1}
+        raise InvalidCharacter, 'chars must be Array<Char> (Char: length 1)'
       when chars.any?{|c|SPECIAL_CHAR =~ c}
         raise InvalidCharacter, 'included Special Characters (-, +, space, control-char)'
       else

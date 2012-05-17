@@ -72,15 +72,29 @@ class TestIntegerBase < Test::Unit::TestCase
   end
   
   def test_standards
+    assert_equal(0, Integer::Base.parse('', Integer::Base::STANDARD_CHARS[1]))
+    
+    assert_raises Integer::Base::InvalidCharacter do
+      Integer::Base.parse('', Integer::Base::STANDARD_CHARS[2])
+    end
+    
+    assert_equal(1, Integer::Base.parse('0', Integer::Base::STANDARD_CHARS[1]))
+    assert_equal(2, Integer::Base.parse('00', Integer::Base::STANDARD_CHARS[1]))
     assert_equal('11'.to_i(2), Integer::Base.parse('11', Integer::Base::STANDARD_CHARS[2]))
     assert_equal('101'.to_i(2), Integer::Base.parse('101', Integer::Base::STANDARD_CHARS[2]))
     assert_equal('11'.to_i(27), Integer::Base.parse('11', Integer::Base::STANDARD_CHARS[27]))
     assert_equal('101'.to_i(27), Integer::Base.parse('101', Integer::Base::STANDARD_CHARS[27]))
     assert_equal('11'.to_i(36), Integer::Base.parse('11', Integer::Base::STANDARD_CHARS[36]))
     assert_equal('101'.to_i(36), Integer::Base.parse('101', Integer::Base::STANDARD_CHARS[36]))
-    
+
     assert_raises KeyError do
       Integer::Base::STANDARD_CHARS[37]
+    end
+  end
+  
+  def test_implements
+    assert_raises ArgumentError do
+      '00'.to_i 1
     end
   end
   
