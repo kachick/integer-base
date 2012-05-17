@@ -37,8 +37,8 @@ Your format comes into positional numeral systems.
     192.to_s   ['0', *'A'..'I']        #=> 'aib'
 
 * Already defined useful chars
-    '10'.to_i Integer::Base::STANDARD_CHARS[36]         #=> 36
-    '10'.to_i Integer::Base::STANDARD_CHARS[:BINARY]    #=> 2
+    '10'.to_i Integer::Base::STANDARD_CHARS[36].last         #=> :Z
+    '10'.to_i Integer::Base::STANDARD_CHARS[:BINARY].last    #=> :"1"
 
 * Get own formats
     'a'.to_i  %w[0 a]                  #=> 1
