@@ -6,7 +6,7 @@ class Integer
 
     class InvalidCharacter < TypeError; end
 
-    SPECIAL_CHAR = /[\x00-\x20\-\+]/
+    SPECIAL_CHAR_PATTERN = /[\x00-\x20\-\+]/
 
   end
 

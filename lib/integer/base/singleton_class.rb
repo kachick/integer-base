@@ -64,7 +64,7 @@ class Integer; module Base
         raise InvalidCharacter, 'dupulicated characters'
       when chars.any?{|s|s.length != 1}
         raise InvalidCharacter, 'chars must be Array<Char> (Char: length 1)'
-      when chars.any?{|c|SPECIAL_CHAR =~ c}
+      when chars.any?{|c|SPECIAL_CHAR_PATTERN =~ c}
         raise InvalidCharacter, 'included Special Characters (-, +, space, control-char)'
       else
         chars
