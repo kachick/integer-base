@@ -6,10 +6,12 @@
 
 == Description
 
-Your format comes into positional numeral systems.
+Your format comes into positional/unary numeral systems.
 
 == Feautures
 
+* Positional numeral systems with free characters, that your selection
+* Unary numeral system with a free character, that your selection
 * You can build upper 36 basenumbers so easily
 * And get own formats so easily too :)
 

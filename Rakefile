@@ -1,5 +1,5 @@
 require 'rubygems'
-gem 'hoe', '~> 3.0.4'
+gem 'hoe', '~> 3.0.6'
 require 'hoe'
 require 'fileutils'
 

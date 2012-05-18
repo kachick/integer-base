@@ -1,3 +1,8 @@
+=== 0.0.5 2012-5-18
+
+* add:
+  * unary numeral system
+
 === 0.0.4 2012-5-7
 
 * modify:
