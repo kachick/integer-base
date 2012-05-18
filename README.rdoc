@@ -1,8 +1,7 @@
 = integer-base
 
-* http://github.com/kachick/integer-base
-* http://rubygems.org/gems/integer-base
-* http://rubyforge.org/projects/integer-base
+code :: http://github.com/kachick/integer-base
+gem  :: http://rubygems.org/gems/integer-base
 
 == Description
 
