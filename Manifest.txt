@@ -4,7 +4,7 @@ History.rdoc
 Manifest.txt
 Rakefile
 lib/integer/base.rb
-lib/integer/base/eigen.rb
+lib/integer/base/singleton_class.rb
 lib/integer/base/standard_chars.rb
 lib/integer/base/version.rb
 lib/integer/base/ext.rb
