@@ -5,7 +5,7 @@ gem  :: http://rubygems.org/gems/integer-base
 
 == Description
 
-Your format comes into positional/unary numeral systems.
+Own formats come into positional/unary numeral systems.
 
 == Feautures
 
