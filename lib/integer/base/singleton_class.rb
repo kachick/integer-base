@@ -8,7 +8,7 @@ class Integer; module Base
     # @param [Array<#to_sym>] chars
     # @return [Integer]
     def parse(str, chars)
-      str   = str.to_str.downcase
+      str = str.to_str.downcase
 
       sign = parse_sign! str
       abs = (
