@@ -26,7 +26,7 @@ class Integer; module Base
     # @param [#to_int] num
     # @param [Array<#to_sym>] chars
     # @return [String]
-    def convert_to_string(num, chars)
+    def string_for(num, chars)
       case chars.length
       when 1
         convert_to_string_unary num, chars.first
@@ -34,6 +34,8 @@ class Integer; module Base
         convert_to_string_positional num, chars
       end
     end
+    
+    alias_method :convert_to_string, :string_for
 
     private
 
@@ -118,7 +120,7 @@ class Integer; module Base
     end
   
     # @return [String]
-    def convert_to_string_positional(num, chars)
+    def string_positional_for(num, chars)
       chars = base_chars_for chars
       int   = num.to_int
       base  = chars.length
@@ -136,9 +138,11 @@ class Integer; module Base
         s.insert 0, '-' if int < 0
       }
     end
+    
+    alias_method :convert_to_string_positional, :string_positional_for
   
     # @return [String]
-    def convert_to_string_unary(num, char)
+    def string_unary_for(num, char)
       char = unary_char_for char
       int = num.to_int
       
@@ -146,6 +150,8 @@ class Integer; module Base
         s.insert 0, '-' if int < 0
       }
     end
+    
+    alias_method :convert_to_string_unary, :string_unary_for
 
   end
 

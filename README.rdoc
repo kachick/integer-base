@@ -1,11 +1,10 @@
 = integer-base
 
-code :: http://github.com/kachick/integer-base
-gem  :: http://rubygems.org/gems/integer-base
+{<img src="https://secure.travis-ci.org/kachick/integer-base.png" />}[http://travis-ci.org/kachick/integer-base]
 
 == Description
 
-Own formats come into positional/unary numeral systems.
+Original formats come into positional/unary numeral systems.
 
 == Feautures
 
@@ -21,49 +20,60 @@ Own formats come into positional/unary numeral systems.
 == Usage
 
 * Setup
+
     require 'integer/base'
 
 * Basic
+
     Integer::Base.parse '10', %w[0 1]   #=> 2
 
 * Extend Ruby's Interface
+
     require 'integer/base/ext'
 
 * to_i
+
     'a'.to_i   ['0', *'A'..'I']        #=> 1
     'a0'.to_i  ['0', *'A'..'I']        #=> 10
     'aib'.to_i ['0', *'A'..'I']        #=> 192
 
 * to_s
+
     192.to_s   ['0', *'A'..'I']        #=> 'aib'
 
 * Already defined useful chars
+
     '10'.to_i Integer::Base::STANDARD_CHARS[36].last         #=> :Z
     '10'.to_i Integer::Base::STANDARD_CHARS[:BINARY].last    #=> :"1"
 
 * Get own formats
+
     'a'.to_i  %w[0 a]                  #=> 1
     'a0'.to_i %w[0 a]                  #=> 2
 
 * Upper 36 basenumbers
+
     '1!'.to_i([*Integer::Base::STANDARD_CHARS[36], '!']) #=> 73
 
 == Requirements
 
 * Ruby 1.9.2 or later
-  
-  Focusing
-  
-  * 1.9.3-p194
-  * 1.9.2-p290
 
 == Installation
 
-* gem install integer-base
+    gem install integer-base
+
+== Links
+
+code   :: https://github.com/kachick/integer-base
+issues :: https://github.com/kachick/integer-base/issues
+CI     :: http://travis-ci.org/#!/kachick/integer-base
+gem    :: https://rubygems.org/gems/integer-base
+gem+   :: http://metagem.info/gems/integer-base
 
 == License
 
-The MIT X11 License
+The MIT X License
 
 Copyright (c) 2011 Kenichi Kamiya
 
