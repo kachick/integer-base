@@ -13,5 +13,5 @@ class Integer
 end
 
 require_relative 'base/version'
-require_relative 'base/singleton_class'
+require_relative 'base/singletonclass'
 require_relative 'base/standard_chars'
