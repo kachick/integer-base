@@ -25,6 +25,7 @@ require 'integer/base'
 
 Integer::Base.parse '10', %w[0 1 2 3 4 5 6 7 8 9]   #=> 10
 Integer::Base.parse '10', %w[0 1]                   #=> 2
+Integer::Base.string_for 10, %w[0 1]                #=> '2'
 
 
 require 'integer/base/core_ext'
@@ -43,7 +44,7 @@ require 'integer/base/core_ext'
 '1?'.to_s [*'0'..'9', *'A'..'Z', '?']               #=> '73' (37 * 1 + 36 * 1)
 ```
 
-### Appendix. Let's begin, your strange base number.
+### Let's begin, your strange base number.
 
 ```ruby
 

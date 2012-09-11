@@ -5,7 +5,8 @@ class Integer
   module Base
 
     class InvalidCharacterError < TypeError; end
-
+    
+    # @return [Regexp]
     SPECIAL_CHAR_PATTERN = /[\x00-\x20\-\+]/
 
     # @return [Hash]

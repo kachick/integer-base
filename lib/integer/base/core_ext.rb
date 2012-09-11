@@ -8,7 +8,7 @@ class String
   # @overload to_i(base_number)
   #   @param [Fixnum] base_number Delegate to standard to_i
   # @overload to_i(positional_chars)
-  #   @param [Array<#to_sym>] positional_chars
+  #   @param [Array<Symbol, String, #to_sym>] positional_chars
   # @return [Integer]
   def to_i(base=10)
     case base
@@ -27,7 +27,7 @@ class Integer
   # @overload to_s(base_number)
   #   @param [Fixnum] base_number Delegate to standard to_s
   # @overload to_s(positional_chars)
-  #   @param [Array<#to_sym>] positional_chars
+  #   @param [Array<Symbol, String, #to_sym>] positional_chars
   # @return [String]
   def to_s(base=10)
     case base

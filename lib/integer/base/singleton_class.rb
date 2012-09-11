@@ -2,34 +2,34 @@ class Integer; module Base
   
   class << self
 
-    # @param [#to_str] str
-    # @param [Array<#to_sym>] chars
+    # @param [String, #to_str] str
+    # @param [Array<Symbol, String, #to_sym>] positional_chars
     # @return [Integer]
-    def parse(str, chars)
+    def parse(str, positional_chars)
       str = str.to_str.downcase
 
       sign = parse_sign! str
       abs = (
-        case chars.length
+        case positional_chars.length
         when 1
-          parse_unary_abs str, chars.first
+          parse_unary_abs str, positional_chars.first
         else
-          parse_positional_abs str, chars
+          parse_positional_abs str, positional_chars
         end
       )
       
       (sign == :-) ? -abs : abs
     end
 
-    # @param [#to_int] num
-    # @param [Array<#to_sym>] chars
+    # @param [Integer, #to_int] num
+    # @param [Array<Symbol, String, #to_sym>] positional_chars
     # @return [String]
-    def string_for(num, chars)
-      case chars.length
+    def string_for(num, positional_chars)
+      case positional_chars.length
       when 1
-        string_unary_for num, chars.first
+        string_unary_for num, positional_chars.first
       else
-        string_positional_for num, chars
+        string_positional_for num, positional_chars
       end
     end
 
