@@ -1,7 +1,7 @@
-$VERBOSE = true
-require_relative 'test_helper'
+require_relative 'helper'
 
 class TestIntegerBase < Test::Unit::TestCase
+
   def test_parse
     assert_equal(1, '0a'.to_i(['0', *'A'..'I']))
     
@@ -9,18 +9,18 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_equal(1, '0'.to_i(['0']))
     assert_equal(2, '00'.to_i(['0']))
 
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       '01'.to_i(['0'])
     end
 
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       '9a'.to_i(['0', *'A'..'I'])
     end
     
     assert_equal(1, '9a'.to_i(['9', *'A'..'I']))
     assert_equal(10, '9a9'.to_i(['9', *'A'..'I']))
     
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       '9a'.to_i(['9', *'A'..'I', 'B'])
     end
     
@@ -36,21 +36,21 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_equal(-10, '-a0'.to_i(['0', *'A'..'I']))
     assert_equal(-192, '-aib'.to_i(['0', *'A'..'I']))
     
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       'a-ib'.to_i(['0', *'A'..'I'])
     end
     
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       'a+ib'.to_i(['0', *'A'..'I'])
     end
 
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       '~aib'.to_i(['0', *'A'..'I'])
     end
   end
   
   def test_characterable
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       '210'.to_i(('1'..'2').to_a)
     end
     
@@ -91,25 +91,25 @@ class TestIntegerBase < Test::Unit::TestCase
   end
   
   def test_standards_to_i
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('', Integer::Base::STANDARD_CHARS[2])
     end
     
     assert_equal(0, Integer::Base.parse('', Integer::Base::STANDARD_CHARS[1]))
     
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('-', Integer::Base::STANDARD_CHARS[2])
     end
     
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('-', Integer::Base::STANDARD_CHARS[1])
     end
 
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('+', Integer::Base::STANDARD_CHARS[2])
     end
     
-    assert_raises Integer::Base::InvalidCharacter do
+    assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('+', Integer::Base::STANDARD_CHARS[1])
     end
 
@@ -127,6 +127,11 @@ class TestIntegerBase < Test::Unit::TestCase
     end
   end
   
+  def test_irregular_regexp
+    assert_equal(2, ':)'.to_i(%w[) :]))
+    assert_equal(':)', 2.to_s(%w[) :]))
+  end
+  
   def test_implements
     assert_raises ArgumentError do
       '00'.to_i 1
@@ -136,4 +141,5 @@ class TestIntegerBase < Test::Unit::TestCase
   def test_upper36
     assert_equal(73, '1!'.to_i([*Integer::Base::STANDARD_CHARS[36], '!']))
   end
+
 end

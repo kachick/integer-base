@@ -1,5 +1,3 @@
-# Copyright (C) 2011  Kenichi Kamiya
-
 class Integer; module Base
   
   class << self
@@ -29,13 +27,11 @@ class Integer; module Base
     def string_for(num, chars)
       case chars.length
       when 1
-        convert_to_string_unary num, chars.first
+        string_unary_for num, chars.first
       else
-        convert_to_string_positional num, chars
+        string_positional_for num, chars
       end
     end
-    
-    alias_method :convert_to_string, :string_for
 
     private
 
@@ -45,7 +41,7 @@ class Integer; module Base
 
       if sign
         if str.empty?
-          raise InvalidCharacter
+          raise InvalidCharacterError
         else
           sign.to_sym
         end
@@ -63,11 +59,13 @@ class Integer; module Base
       when chars.length < 2
         raise TypeError, 'use 2 or more than characters'
       when chars.dup.uniq!
-        raise InvalidCharacter, 'dupulicated characters'
+        raise InvalidCharacterError, 'dupulicated characters'
       when chars.any?{|s|s.length != 1}
-        raise InvalidCharacter, 'chars must be Array<Char> (Char: length 1)'
+        raise InvalidCharacterError,
+        'chars must be Array<Char> (Char: length 1)'
       when chars.any?{|c|SPECIAL_CHAR_PATTERN =~ c}
-        raise InvalidCharacter, 'included Special Characters (-, +, space, control-char)'
+        raise InvalidCharacterError,
+        'included Special Characters (-, +, space, control-char)'
       else
         chars
       end
@@ -75,18 +73,20 @@ class Integer; module Base
 
     # @return [Symbol]
     def unary_char_for(char)
-      raise InvalidCharacter unless (char.length == 1) and char.respond_to?(:to_sym)
+      unless (char.length == 1) and char.respond_to?(:to_sym)
+        raise InvalidCharacterError, char
+      end
       
       char.to_sym
     end
     
     def trim_positional_paddings!(str, pad_char)
-      str.slice!(/\A#{pad_char}+/)
+      str.slice!(/\A#{Regexp.escape pad_char}+/)
     end
     
     # @return [Integer]
     def parse_positional_abs(str, chars)
-      raise InvalidCharacter if str.empty?
+      raise InvalidCharacterError if str.empty?
       base = chars.length
       chars = base_chars_for chars
       
@@ -99,7 +99,7 @@ class Integer; module Base
         if radix = chars.index(char.to_sym)
           sum + (radix * (base ** index))
         else
-          raise InvalidCharacter
+          raise InvalidCharacterError
         end
       }
     end
@@ -110,11 +110,16 @@ class Integer; module Base
       return 0 if str.empty?
       
       chars = str.chars.to_a
+
       atoms = chars.uniq      
-      raise InvalidCharacter, 'contain multiple chars' unless atoms.length == 1
-      
+      unless atoms.length == 1
+        raise InvalidCharacterError, 'contain multiple chars' 
+      end
+
       atom = atoms.first.to_sym
-      raise InvalidCharacter, 'not match the char and atom' unless atom == char
+      unless atom == char
+        raise InvalidCharacterError, 'not match the char and atom'
+      end
       
       chars.length
     end
@@ -138,9 +143,7 @@ class Integer; module Base
         s.insert 0, '-' if int < 0
       }
     end
-    
-    alias_method :convert_to_string_positional, :string_positional_for
-  
+
     # @return [String]
     def string_unary_for(num, char)
       char = unary_char_for char
@@ -150,8 +153,6 @@ class Integer; module Base
         s.insert 0, '-' if int < 0
       }
     end
-    
-    alias_method :convert_to_string_unary, :string_unary_for
 
   end
 

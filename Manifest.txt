@@ -5,10 +5,12 @@ Manifest.txt
 Rakefile
 Gemfile
 integer-base.gemspec
+
 lib/integer/base.rb
-lib/integer/base/singletonclass.rb
-lib/integer/base/standard_chars.rb
+lib/integer/base/requirements.rb
+lib/integer/base/singleton_class.rb
 lib/integer/base/version.rb
-lib/integer/base/ext.rb
-test/test_helper.rb
+lib/integer/base/core_ext.rb
+
+test/helper.rb
 test/test_integer-base.rb

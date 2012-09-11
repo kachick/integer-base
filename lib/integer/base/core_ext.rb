@@ -1,9 +1,8 @@
-# Copyright (C) 2011  Kenichi Kamiya
+require_relative '../base'
 
 class String
 
   alias_method :original_to_i, :to_i
-  
   remove_method :to_i
 
   # @overload to_i(base_number)
@@ -33,7 +32,7 @@ class Integer
   def to_s(base=10)
     case base
     when Enumerable
-      ::Integer::Base.convert_to_string self, base
+      ::Integer::Base.string_for self, base
     else
       original_to_s base
     end

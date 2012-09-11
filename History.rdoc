@@ -1,3 +1,12 @@
+=== 0.0.6 2012-9-12
+
+* modify:
+  * remove obsoluite API "convert_[foo]_[bar]"
+  * integer/base/ext -> integer/base/core_ext
+
+* fix:
+  * specific character conflict with inner regexp
+
 === 0.0.5 2012-5-18
 
 * add:
