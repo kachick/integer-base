@@ -49,7 +49,6 @@ require 'integer/base/core_ext'
 ```ruby
 
 ':)'.to_i %w[) :]                                   #=> 2
-
 ```
 
 Requirements
