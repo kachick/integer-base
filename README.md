@@ -67,7 +67,7 @@ Link
 ----
 
 * [code](https://github.com/kachick/integer-base)
-* [API](http://kachick.github.com/docs/integer-base/api/frames.html)
+* [API](http://kachick.github.com/integer-base/yard/frames.html)
 * [issues](https://github.com/kachick/integer-base/issues)
 * [CI](http://travis-ci.org/#!/kachick/integer-base)
 * [gem](https://rubygems.org/gems/integer-base)
