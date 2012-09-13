@@ -5,7 +5,7 @@ class Integer; module Base
     # @param [String, #to_str] str
     # @param [Array<Symbol, String, #to_sym>] positional_chars
     # @return [Integer]
-    def parse(str, positional_chars)
+    def integer_for_string(str, positional_chars)
       str = str.to_str.downcase
 
       sign = parse_sign! str
@@ -21,10 +21,12 @@ class Integer; module Base
       (sign == :-) ? -abs : abs
     end
 
+    alias_method :parse, :integer_for_string
+
     # @param [Integer, #to_int] num
     # @param [Array<Symbol, String, #to_sym>] positional_chars
     # @return [String]
-    def string_for(num, positional_chars)
+    def string_for_integer(num, positional_chars)
       case positional_chars.length
       when 1
         string_unary_for num, positional_chars.first
@@ -32,6 +34,8 @@ class Integer; module Base
         string_positional_for num, positional_chars
       end
     end
+
+    alias_method :string_for, :string_for_integer
 
     private
 
