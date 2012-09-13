@@ -3,7 +3,8 @@ require File.expand_path('../lib/integer/base/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ['Kenichi Kamiya']
   gem.email         = ['kachick1+ruby@gmail.com']
-  gem.description   = %q{Any formats can mean positional/unary numeral systems :)}
+  gem.description   = %q{Any formats can mean positional/unary numeral systems :)
+So base number conversion under your choise.}
   gem.summary       = %q{Any formats can mean positional/unary numeral systems :)}
   gem.homepage      = 'https://github.com/kachick/integer-base'
 

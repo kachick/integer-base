@@ -33,3 +33,4 @@ doc/
 *.bak
 tool/
 *\#*
+.rbx/

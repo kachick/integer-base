@@ -41,7 +41,7 @@ require 'integer/base/core_ext'
 '10'.to_i [*'0'..'9', *'A'..'Z']                    #=> 36
 '10'.to_i 37                                        #=> ArgumentError
 '10'.to_i [*'0'..'9', *'A'..'Z', '?']               #=> 37
-'1?'.to_s [*'0'..'9', *'A'..'Z', '?']               #=> '73' (37 * 1 + 36 * 1)
+'1?'.to_i [*'0'..'9', *'A'..'Z', '?']               #=> 73 (37 * 1 + 36 * 1)
 ```
 
 ### Let's begin, your strange base number.
