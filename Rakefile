@@ -8,4 +8,5 @@ task default: [:test]
 Rake::TestTask.new do |tt|
   tt.pattern = 'test/**/test_*.rb'
   tt.verbose = true
+  tt.warning = true
 end
