@@ -3,6 +3,7 @@ integer-base
 
 [![Build Status](https://secure.travis-ci.org/kachick/integer-base.png)](http://travis-ci.org/kachick/integer-base)
 [![Gem Version](https://badge.fury.io/rb/integer-base.png)](http://badge.fury.io/rb/integer-base)
+[![Dependency Status](https://gemnasium.com/kachick/integer-base.svg)](https://gemnasium.com/kachick/integer-base)
 
 Description
 -----------
@@ -25,8 +26,7 @@ Usage
 require 'integer/base'
 
 Integer::Base.parse '10', %w[0 1 2 3 4 5 6 7 8 9]   #=> 10
-Integer::Base.parse '10', %w[0 1]                   #=> 2
-Integer::Base.string_for 10, %w[0 1]                #=> '2'
+
 
 using Integer::Base
 
@@ -67,7 +67,7 @@ Link
 ----
 
 * [code](https://github.com/kachick/integer-base)
-* [API](http://kachick.github.com/integer-base/yard/frames.html)
+* [API](http://www.rubydoc.info/github/kachick/integer-base)
 * [issues](https://github.com/kachick/integer-base/issues)
 * [CI](http://travis-ci.org/#!/kachick/integer-base)
 * [gem](https://rubygems.org/gems/integer-base)
