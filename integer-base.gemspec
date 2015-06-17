@@ -18,7 +18,7 @@ So base number conversion under your choise.}
   # dup for https://github.com/rubygems/rubygems/commit/48f1d869510dcd325d6566df7d0147a086905380#-P0
   gem.version       = Integer::Base::VERSION.dup
 
-  gem.required_ruby_version = '>= 1.9.2'
+  gem.required_ruby_version = '>= 2.0'
 
   gem.add_development_dependency 'test-unit', '>= 3.1.1', '< 4'
   gem.add_development_dependency 'yard', '>= 0.8.7.6', '< 0.9'

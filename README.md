@@ -55,7 +55,7 @@ require 'integer/base/core_ext'
 Requirements
 -------------
 
-* [Ruby 1.9.2 or later](http://travis-ci.org/#!/kachick/integer-base)
+* [Ruby 2.0 or later](http://travis-ci.org/#!/kachick/integer-base)
 
 Install
 -------
