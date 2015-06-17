@@ -2,6 +2,6 @@
 
 class Integer; module Base
 
-  VERSION = '0.0.7.a'.freeze
+  VERSION = '0.1.0'.freeze
 
 end; end
