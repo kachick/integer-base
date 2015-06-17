@@ -16,10 +16,10 @@ class Integer
     #     36 => [:"0", :"1", ... , :Z] }
     STANDARD_CHARS = Hash.new{|*|raise KeyError}.tap {|standards|
       1.upto 10 do |n|
-        standards[n] = ('0'..((n - 1).to_s)).map(&:to_sym).freeze
+        standards[n] = (:'0'..((n - 1).to_s.to_sym)).to_a.freeze
       end
       
-      alphabets = ('A'..'Z').map(&:to_sym)
+      alphabets = (:A..:Z).to_a
       
       11.upto 36 do |n|
         standards[n] = [
