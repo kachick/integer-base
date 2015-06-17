@@ -1,6 +1,26 @@
 require_relative 'helper'
 
+module RefinementsFixture # Define at the first of all test class
+  using Integer::Base
+end
+
+SIMPLE_PARSECASE = %q! '0a'.to_i(['0', *'A'..'I']) !
+SIMPLE_PARSECASE_RESULT = 1
+
+class TestRefinements < Test::Unit::TestCase
+  def test_refinements
+    assert_raise TypeError do
+      instance_eval(SIMPLE_PARSECASE)
+    end
+  end
+end
+
 class TestIntegerBase < Test::Unit::TestCase
+  using Integer::Base
+
+  def test_refinements
+    assert_equal SIMPLE_PARSECASE_RESULT, instance_eval(SIMPLE_PARSECASE)
+  end
 
   def test_parse
     assert_equal(1, '0a'.to_i(['0', *'A'..'I']))

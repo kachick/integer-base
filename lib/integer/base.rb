@@ -35,4 +35,6 @@ class Integer
 
 end
 
-require_relative 'base/requirements'
+require_relative 'base/refinementable'
+require_relative 'base/singleton_class'
+require_relative 'base/version'

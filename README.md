@@ -8,7 +8,7 @@ Description
 -----------
 
 Any formats can mean positional/unary numeral systems :)  
-So base number conversion under your choise.
+So base number conversion under your choice.
 
 Features
 --------
@@ -28,8 +28,7 @@ Integer::Base.parse '10', %w[0 1 2 3 4 5 6 7 8 9]   #=> 10
 Integer::Base.parse '10', %w[0 1]                   #=> 2
 Integer::Base.string_for 10, %w[0 1]                #=> '2'
 
-
-require 'integer/base/core_ext'
+using Integer::Base
 
 '10'.to_i %w[0 1]                                   #=> 2
 10.to_s   %w[0 1]                                   #=> "2"
@@ -55,7 +54,7 @@ require 'integer/base/core_ext'
 Requirements
 -------------
 
-* [Ruby 2.0 or later](http://travis-ci.org/#!/kachick/integer-base)
+* [Ruby 2.1 or later](http://travis-ci.org/#!/kachick/integer-base)
 
 Install
 -------

@@ -1,8 +1,5 @@
 # coding: us-ascii
 
-require_relative '../base'
-
-
 class Integer; module Base
   
   module StringPrepender
@@ -33,16 +30,16 @@ class Integer; module Base
     end
   end
 
+  refine String do
+    prepend Integer::Base::StringPrepender
+  end
+  
+  refine Fixnum do
+    prepend Integer::Base::IntegerPrepender
+  end
+
+  refine Bignum do
+    prepend Integer::Base::IntegerPrepender
+  end
+
 end; end
-
-class String
-  prepend Integer::Base::StringPrepender
-end
-
-class Fixnum
-  prepend Integer::Base::IntegerPrepender
-end
-
-class Bignum
-  prepend Integer::Base::IntegerPrepender
-end
