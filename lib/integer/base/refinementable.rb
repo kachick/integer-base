@@ -34,11 +34,7 @@ class Integer; module Base
     prepend Integer::Base::StringPrepender
   end
   
-  refine Fixnum do
-    prepend Integer::Base::IntegerPrepender
-  end
-
-  refine Bignum do
+  refine Integer do
     prepend Integer::Base::IntegerPrepender
   end
 
