@@ -3,8 +3,7 @@
 class Integer; module Base
   
   module StringPrepender
-    # @param [Fixnum] base_number Delegate to standard to_i
-    # @param [Array<Symbol, String, #to_sym>] positional_chars
+    # @param [Fixnum] base Delegate to standard to_i
     # @return [Integer]
     def to_i(base=10)
       case base
@@ -17,8 +16,7 @@ class Integer; module Base
   end
 
   module IntegerPrepender
-    # @param [Fixnum] base_number Delegate to standard to_s
-    # @param [Array<Symbol, String, #to_sym>] positional_chars
+    # @param [Fixnum] base Delegate to standard to_s
     # @return [String]
     def to_s(base=10)
       case base
