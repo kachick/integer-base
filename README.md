@@ -3,7 +3,6 @@ integer-base
 
 [![Build Status](https://secure.travis-ci.org/kachick/integer-base.png)](http://travis-ci.org/kachick/integer-base)
 [![Gem Version](https://badge.fury.io/rb/integer-base.png)](http://badge.fury.io/rb/integer-base)
-[![Dependency Status](https://gemnasium.com/kachick/integer-base.svg)](https://gemnasium.com/kachick/integer-base)
 
 Description
 -----------
