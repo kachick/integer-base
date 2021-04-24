@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Kenichi Kamiya']
   gem.email         = ['kachick1+ruby@gmail.com']
   gem.description   = %q{Any formats can mean positional/unary numeral systems :)
-So base number conversion under your choise.}
+So base number conversion under your choice.}
   gem.summary       = %q{Any formats can mean positional/unary numeral systems :)}
 
   gem.summary       = gem.description.dup

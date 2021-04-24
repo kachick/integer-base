@@ -65,7 +65,7 @@ class Integer; module Base
       when chars.length < 2
         raise TypeError, 'use 2 or more than characters'
       when chars.dup.uniq!
-        raise InvalidCharacterError, 'dupulicated characters'
+        raise InvalidCharacterError, 'duplicated characters'
       when chars.any?{|s|s.length != 1}
         raise InvalidCharacterError,
         'chars must be Array<Char> (Char: length 1)'
