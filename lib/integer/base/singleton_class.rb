@@ -1,4 +1,5 @@
 # coding: us-ascii
+# frozen_string_literal: true
 
 class Integer; module Base
   
@@ -65,7 +66,7 @@ class Integer; module Base
       when chars.length < 2
         raise TypeError, 'use 2 or more than characters'
       when chars.dup.uniq!
-        raise InvalidCharacterError, 'dupulicated characters'
+        raise InvalidCharacterError, 'duplicated characters'
       when chars.any?{|s|s.length != 1}
         raise InvalidCharacterError,
         'chars must be Array<Char> (Char: length 1)'
@@ -138,7 +139,7 @@ class Integer; module Base
       
       return chars.first.to_s if int == 0
 
-      ''.tap {|s|
+      (+'').tap {|s|
         n = int.abs
 
         until (n, excess = n.divmod base; n == 0 && excess == 0)
