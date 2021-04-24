@@ -53,7 +53,7 @@ using Integer::Base
 Requirements
 -------------
 
-* [Ruby 2.5 or later](http://travis-ci.org/#!/kachick/integer-base)
+* Ruby 2.5 or later
 
 Install
 -------
