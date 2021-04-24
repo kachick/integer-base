@@ -1,7 +1,7 @@
 integer-base
 =============
 
-[![Build Status](https://secure.travis-ci.org/kachick/integer-base.png)](http://travis-ci.org/kachick/integer-base)
+![Build Status](https://github.com/kachick/integer-base/actions/workflows/test.yml/badge.svg?branch=main)
 [![Gem Version](https://badge.fury.io/rb/integer-base.png)](http://badge.fury.io/rb/integer-base)
 
 Description
@@ -65,11 +65,7 @@ $ gem install integer-base
 Link
 ----
 
-* [code](https://github.com/kachick/integer-base)
-* [API](http://www.rubydoc.info/github/kachick/integer-base)
-* [issues](https://github.com/kachick/integer-base/issues)
-* [CI](http://travis-ci.org/#!/kachick/integer-base)
-* [gem](https://rubygems.org/gems/integer-base)
+* [API documentation](https://rubydoc.info/github/kachick/integer-base/)
 
 License
 --------
