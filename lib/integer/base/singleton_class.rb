@@ -48,7 +48,7 @@ class Integer; module Base
 
       if sign
         if str.empty?
-          raise InvalidCharacterError
+          raise InvalidCharacterError, 'given string does not have characters except +/-'
         else
           sign.to_sym
         end
@@ -81,7 +81,7 @@ class Integer; module Base
     # @return [Symbol]
     def unary_char_for(char)
       unless (char.length == 1) and char.respond_to?(:to_sym)
-        raise InvalidCharacterError, char
+        raise InvalidCharacterError, "#{char.inspect} must be 1 character and can be symbolized"
       end
       
       char.to_sym
@@ -93,7 +93,7 @@ class Integer; module Base
     
     # @return [Integer]
     def parse_positional_abs(str, chars)
-      raise InvalidCharacterError if str.empty?
+      raise InvalidCharacterError, 'given str is empty' if str.empty?
       base = chars.length
       chars = base_chars_for chars
       
@@ -106,7 +106,7 @@ class Integer; module Base
         if radix = chars.index(char.to_sym)
           sum + (radix * (base ** index))
         else
-          raise InvalidCharacterError
+          raise InvalidCharacterError, "#{char} is not defined on #{chars}"
         end
       }
     end
