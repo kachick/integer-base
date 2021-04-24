@@ -18,10 +18,9 @@ So base number conversion under your choise.}
   # dup for https://github.com/rubygems/rubygems/commit/48f1d869510dcd325d6566df7d0147a086905380#-P0
   gem.version       = Integer::Base::VERSION.dup
 
-  gem.add_development_dependency 'test-unit', '>= 3.3.3', '< 4'
-  gem.add_development_dependency 'yard', '>= 0.9.20', '< 2'
-  gem.add_development_dependency 'rake', '>= 10', '< 20'
-  gem.add_development_dependency 'bundler', '>= 2', '< 3'
+  gem.add_development_dependency 'test-unit', '>= 3.4.1', '< 4'
+  gem.add_development_dependency 'yard', '>= 0.9.26', '< 2'
+  gem.add_development_dependency 'rake', '>= 13.0.3', '< 20'
   
   # common
 
