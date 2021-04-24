@@ -1,6 +1,7 @@
 # coding: us-ascii
+# frozen_string_literal: true
 
-lib_name = 'integer-base'.freeze
+lib_name = 'integer-base'
 
 require File.expand_path('../lib/integer/base/version', __FILE__)
 

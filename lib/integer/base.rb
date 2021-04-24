@@ -1,4 +1,5 @@
 # coding: us-ascii
+# frozen_string_literal: true
 # Copyright (C) 2011 Kenichi Kamiya
 
 class Integer

@@ -1,4 +1,5 @@
 # coding: us-ascii
+# frozen_string_literal: true
 
 class Integer; module Base
   
@@ -138,7 +139,7 @@ class Integer; module Base
       
       return chars.first.to_s if int == 0
 
-      ''.tap {|s|
+      (+'').tap {|s|
         n = int.abs
 
         until (n, excess = n.divmod base; n == 0 && excess == 0)
