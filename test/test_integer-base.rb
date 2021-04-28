@@ -162,4 +162,11 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_equal(73, '1!'.to_i([*Integer::Base::STANDARD_CHARS[36], '!']))
   end
 
+  def test_typical_crockford_base32
+    # ULID examples
+    assert_equal(340282366920938463463374607431768211455, Integer::Base.parse('7ZZZZZZZZZZZZZZZZZZZZZZZZZ', Integer::Base::ENCODED_CROCKFORD_BASE32_CHARS))
+    assert_equal('7ZZZZZZZZZZZZZZZZZZZZZZZZZ'.downcase, Integer::Base.string_for(340282366920938463463374607431768211455, Integer::Base::ENCODED_CROCKFORD_BASE32_CHARS))
+    # Not yet supported aliases, I i L l as 1
+  end
+
 end

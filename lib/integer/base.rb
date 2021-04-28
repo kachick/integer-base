@@ -32,6 +32,10 @@ class Integer
       standards[:BINARY] = standards[2]
     }.freeze
 
+    # Crockford's Base32. Excluded I, L, O, U.
+    # @see https://www.crockford.com/base32.html
+    ENCODED_CROCKFORD_BASE32_CHARS = '0123456789ABCDEFGHJKMNPQRSTVWXYZ'.chars.map(&:to_sym).freeze
+
   end
 
 end
