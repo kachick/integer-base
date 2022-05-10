@@ -3,7 +3,8 @@
 
 lib_name = 'integer-base'
 
-require File.expand_path('../lib/integer/base/version', __FILE__)
+require_relative './lib/integer/base/version'
+repository_url = "https://github.com/kachick/#{lib_name}"
 
 Gem::Specification.new do |gem|
   gem.authors       = ['Kenichi Kamiya']
@@ -17,9 +18,18 @@ So base number conversion under your choice.}
   gem.name          = lib_name
   gem.version       = Integer::Base::VERSION
 
+  gem.metadata = {
+    'documentation_uri'     => "https://kachick.github.io/#{lib_name}",
+    'homepage_uri'          => repository_url,
+    'source_code_uri'       => repository_url,
+    'bug_tracker_uri'       => "#{repository_url}/issues",
+    'rubygems_mfa_required' => 'true'
+  }
+
   gem.add_development_dependency 'test-unit', '>= 3.4.1', '< 4'
   gem.add_development_dependency 'yard', '>= 0.9.26', '< 2'
   gem.add_development_dependency 'rake', '>= 13.0.3', '< 20'
+  
   
   gem.required_ruby_version = '>= 2.7'
 
