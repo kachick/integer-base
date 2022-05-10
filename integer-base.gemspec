@@ -21,7 +21,7 @@ So base number conversion under your choice.}
   gem.add_development_dependency 'yard', '>= 0.9.26', '< 2'
   gem.add_development_dependency 'rake', '>= 13.0.3', '< 20'
   
-  gem.required_ruby_version = '>= 2.5'
+  gem.required_ruby_version = '>= 2.7'
 
   # common
 

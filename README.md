@@ -53,7 +53,7 @@ using Integer::Base
 Requirements
 -------------
 
-* Ruby 2.5 or later
+* Ruby 2.7 or later
 
 Install
 -------
