@@ -25,10 +25,6 @@ So base number conversion under your choice.}
     'bug_tracker_uri'       => "#{repository_url}/issues",
     'rubygems_mfa_required' => 'true'
   }
-
-  gem.add_development_dependency 'test-unit', '>= 3.4.1', '< 4'
-  gem.add_development_dependency 'yard', '>= 0.9.26', '< 2'
-  gem.add_development_dependency 'rake', '>= 13.0.3', '< 20'
   
   
   gem.required_ruby_version = '>= 2.7'
