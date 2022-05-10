@@ -65,7 +65,7 @@ $ gem install integer-base
 Link
 ----
 
-* [API documentation](https://rubydoc.info/github/kachick/integer-base/)
+* [API documentation](https://kachick.github.io/integer-base/)
 
 License
 --------
