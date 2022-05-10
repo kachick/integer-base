@@ -30,11 +30,21 @@ class Integer; module Base
   end
 
   refine String do
-    prepend Integer::Base::StringPrepender
+    # @TODO Remove this branch since dropped to support Ruby 3.0 or older
+    if respond_to?(:import_methods, true)
+      import_methods Integer::Base::StringPrepender
+    else
+      prepend Integer::Base::StringPrepender
+    end
   end
   
   refine Integer do
-    prepend Integer::Base::IntegerPrepender
+    # @TODO Remove this branch since dropped to support Ruby 3.0 or older
+    if respond_to?(:import_methods, true)
+      import_methods Integer::Base::IntegerPrepender
+    else
+      prepend Integer::Base::IntegerPrepender
+    end
   end
 
 end; end

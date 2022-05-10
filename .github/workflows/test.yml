@@ -10,7 +10,7 @@ jobs:
         # Don't include `truffleruby` and `jruby`
         #  * https://github.com/kachick/integer-base/runs/2426555099
         #  * https://github.com/kachick/integer-base/runs/2426555119
-        ruby: [2.5, 2.6, 2.7, '3.0', head]
+        ruby: [2.7, '3.0', 3.1, head]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
