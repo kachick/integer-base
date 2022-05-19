@@ -6,7 +6,7 @@ module RefinementsFixture
   using Integer::Base
 end
 
-SIMPLE_PARSECASE = %q! '0a'.to_i(['0', *'A'..'I']) !.freeze
+SIMPLE_PARSECASE = %q! '0a'.to_i(['0', *'A'..'I']) !
 SIMPLE_PARSECASE_RESULT = 1
 
 class TestRefinements < Test::Unit::TestCase
@@ -26,7 +26,7 @@ class TestIntegerBase < Test::Unit::TestCase
 
   def test_parse
     assert_equal(1, '0a'.to_i(['0', *'A'..'I']))
-    
+
     assert_equal(0, ''.to_i(['0']))
     assert_equal(1, '0'.to_i(['0']))
     assert_equal(2, '00'.to_i(['0']))
@@ -38,16 +38,16 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_raises Integer::Base::InvalidCharacterError do
       '9a'.to_i(['0', *'A'..'I'])
     end
-    
+
     assert_equal(1, '9a'.to_i(['9', *'A'..'I']))
     assert_equal(10, '9a9'.to_i(['9', *'A'..'I']))
-    
+
     assert_raises Integer::Base::InvalidCharacterError do
       '9a'.to_i(['9', *'A'..'I', 'B'])
     end
-    
+
     assert_equal(1, Integer::Base.parse('00a', ['0', *'A'..'I']))
-    
+
     assert_equal(1, '00a'.to_i(['0', *'A'..'I']))
     assert_equal(1, '99a'.to_i(['9', *'A'..'I']))
 
@@ -57,11 +57,11 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_equal(192, '+aib'.to_i(['0', *'A'..'I']))
     assert_equal(-10, '-a0'.to_i(['0', *'A'..'I']))
     assert_equal(-192, '-aib'.to_i(['0', *'A'..'I']))
-    
+
     assert_raises Integer::Base::InvalidCharacterError do
       'a-ib'.to_i(['0', *'A'..'I'])
     end
-    
+
     assert_raises Integer::Base::InvalidCharacterError do
       'a+ib'.to_i(['0', *'A'..'I'])
     end
@@ -70,15 +70,15 @@ class TestIntegerBase < Test::Unit::TestCase
       '~aib'.to_i(['0', *'A'..'I'])
     end
   end
-  
+
   def test_characterable
     assert_raises Integer::Base::InvalidCharacterError do
       '210'.to_i(('1'..'2').to_a)
     end
-    
+
     assert_equal(21, '210'.to_i(('0'..'2').to_a))
   end
-  
+
   def test_to_s
     assert_equal('aib', 192.to_s(['0', *'A'..'I']))
     assert_equal('0', 0.to_s(%w[0 1]))
@@ -87,14 +87,14 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_equal('11', 3.to_s(%w[0 1]))
     assert_equal('100', 4.to_s(%w[0 1]))
     assert_equal('101', 5.to_s(%w[0 1]))
-    
+
     assert_equal('-aib', -192.to_s(['0', *'A'..'I']))
     assert_equal('-1', -1.to_s(%w[0 1]))
     assert_equal('-10', -2.to_s(%w[0 1]))
     assert_equal('-11', -3.to_s(%w[0 1]))
     assert_equal('-100', -4.to_s(%w[0 1]))
     assert_equal('-101', -5.to_s(%w[0 1]))
-    
+
     assert_equal('0' * 192, 192.to_s(['0']))
     assert_equal('', 0.to_s(['0']))
     assert_equal('0', 1.to_s(['0']))
@@ -107,22 +107,22 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_equal('-000', -3.to_s(['0']))
 
   end
-  
+
   def test_binary
     assert_equal 2, Integer::Base.parse('10', %w[0 1])
   end
-  
+
   def test_standards_to_i
     assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('', Integer::Base::STANDARD_CHARS[2])
     end
-    
+
     assert_equal(0, Integer::Base.parse('', Integer::Base::STANDARD_CHARS[1]))
-    
+
     assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('-', Integer::Base::STANDARD_CHARS[2])
     end
-    
+
     assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('-', Integer::Base::STANDARD_CHARS[1])
     end
@@ -130,7 +130,7 @@ class TestIntegerBase < Test::Unit::TestCase
     assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('+', Integer::Base::STANDARD_CHARS[2])
     end
-    
+
     assert_raises Integer::Base::InvalidCharacterError do
       Integer::Base.parse('+', Integer::Base::STANDARD_CHARS[1])
     end
@@ -148,18 +148,18 @@ class TestIntegerBase < Test::Unit::TestCase
       Integer::Base::STANDARD_CHARS[37]
     end
   end
-  
+
   def test_irregular_regexp
     assert_equal(2, ':)'.to_i(%w[) :]))
     assert_equal(':)', 2.to_s(%w[) :]))
   end
-  
+
   def test_implements
     assert_raises ArgumentError do
       '00'.to_i 1
     end
   end
-  
+
   def test_upper36
     assert_equal(73, '1!'.to_i([*Integer::Base::STANDARD_CHARS[36], '!']))
   end

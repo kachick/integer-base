@@ -161,4 +161,5 @@ class Integer
         }
       end
     end
-  end; end
+  end
+end

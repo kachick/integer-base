@@ -46,4 +46,5 @@ class Integer
         prepend Integer::Base::IntegerPrepender
       end
     end
-  end; end
+  end
+end
