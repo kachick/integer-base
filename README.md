@@ -1,13 +1,13 @@
 integer-base
 =============
 
-![Build Status](https://github.com/kachick/integer-base/actions/workflows/test.yml/badge.svg?branch=main)
-[![Gem Version](https://badge.fury.io/rb/integer-base.png)](http://badge.fury.io/rb/integer-base)
+![Build Status](https://github.com/kachick/integer-base/actions/workflows/test_behaviors.yml/badge.svg?branch=main)
+[![Gem Version](https://badge.fury.io/rb/integer-base.svg)](http://badge.fury.io/rb/integer-base)
 
 Description
 -----------
 
-Any formats can mean positional/unary numeral systems :)  
+Any formats can mean positional/unary numeral systems :)
 So base number conversion under your choice.
 
 Features
@@ -70,6 +70,6 @@ Link
 License
 --------
 
-The MIT X11 License  
-Copyright (c) 2011 Kenichi Kamiya  
+The MIT X11 License
+Copyright (c) 2011 Kenichi Kamiya
 See MIT-LICENSE for further details.
