@@ -1,10 +1,12 @@
+# frozen_string_literal: true
 require_relative 'helper'
 
-module RefinementsFixture # Define at the first of all test class
+# Define at the first of all test class
+module RefinementsFixture
   using Integer::Base
 end
 
-SIMPLE_PARSECASE = %q! '0a'.to_i(['0', *'A'..'I']) !
+SIMPLE_PARSECASE = %q! '0a'.to_i(['0', *'A'..'I']) !.freeze
 SIMPLE_PARSECASE_RESULT = 1
 
 class TestRefinements < Test::Unit::TestCase
