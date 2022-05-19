@@ -25,7 +25,7 @@ So base number conversion under your choice.}
   }
 
 
-  gem.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
+  gem.required_ruby_version = Gem::Requirement.new('>= 3.1.0')
 
   # common
 
