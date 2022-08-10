@@ -1,1 +1,3 @@
---readme README.md lib/**/*.rb --exclude inner|instancemethods/singleton_class - LICENSE
+--fail-on-warning
+-
+LICENSE
