@@ -3,7 +3,7 @@
 
 lib_name = 'integer-base'
 
-require_relative './lib/integer/base/version'
+require_relative 'lib/integer/base/version'
 repository_url = "https://github.com/kachick/#{lib_name}"
 
 Gem::Specification.new do |gem|
