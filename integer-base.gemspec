@@ -17,13 +17,11 @@ So base number conversion under your choice.}
   gem.version       = Integer::Base::VERSION
 
   gem.metadata = {
-    'documentation_uri'     => "https://kachick.github.io/#{lib_name}",
     'homepage_uri'          => repository_url,
     'source_code_uri'       => repository_url,
     'bug_tracker_uri'       => "#{repository_url}/issues",
     'rubygems_mfa_required' => 'true'
   }
-
 
   gem.required_ruby_version = Gem::Requirement.new('>= 3.2')
 
