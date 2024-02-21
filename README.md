@@ -1,8 +1,11 @@
 integer-base
 =============
 
+- _**This repository is archived**_
+- _**No longer maintained**_
+- _**All versions have been removed from <https://rubygems.org> to free up valuable namespace for other developers**_.
+
 ![Build Status](https://github.com/kachick/integer-base/actions/workflows/test_behaviors.yml/badge.svg?branch=main)
-[![Gem Version](https://badge.fury.io/rb/integer-base.svg)](http://badge.fury.io/rb/integer-base)
 
 Description
 -----------
@@ -56,12 +59,6 @@ using Integer::Base
 
 ':)'.to_i %w[) :]                                   #=> 2
 ```
-
-Link
-----
-
-* [Repository](https://github.com/kachick/integer-base)
-* [API documentation](https://kachick.github.io/integer-base/)
 
 License
 --------
